@@ -784,6 +784,8 @@ while run:
                                        json.dumps(newRow['State']) + ';' +
                                        json.dumps(newRow['RoomTemp']) + '\n')
                         csvFile.write(lineToWrite)
+                        if 'brewLoggaUser' in config:
+                            logMessage("Send this to brewLogga server: %s" % str(lineToWrite))
                     except KeyError, e:
                         logMessage("KeyError in line from controller: %s" % str(e))
 
